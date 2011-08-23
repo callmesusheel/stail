@@ -1,6 +1,6 @@
 var server = {
 		port: 8080,
-		frontend: "example/front-end"
+		frontend: "front-end"
 };
 
 var tails = 

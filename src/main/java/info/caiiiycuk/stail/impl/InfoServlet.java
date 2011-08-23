@@ -14,7 +14,7 @@ public class InfoServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private static String VERSION = "UNKNOWN"; 
+	private static String VERSION = "0:c66db5d57999"; 
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
