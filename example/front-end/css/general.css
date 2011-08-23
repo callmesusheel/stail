@@ -1,0 +1,38 @@
+body {
+	background: #FFFFDD;
+}
+
+.menu {
+	background: #DDDDFF;
+	border: 1px solid black;
+	padding: 10px;
+	width: 90%;
+}
+
+#tails {
+	display: inline;
+/*	border-bottom: 1px solid black;*/
+	margin: 0px;
+/*	padding-left: 20px;*/
+}
+
+.tailSelector {
+	display: inline;
+	margin: 5px 30px 5px 0px;
+}
+
+#logWindow {
+	position: absolute;
+	border: 1px solid black;
+	margin: 5px;
+	padding: 5px;
+	overflow: auto;
+	height: 70%;
+	width: 90%;
+}
+
+#command {
+	color: #7c7c7c;
+	font-size: 10px;
+	visibility: hidden;
+}
