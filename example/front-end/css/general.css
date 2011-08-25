@@ -1,38 +1,60 @@
 body {
-	background: #FFFFDD;
-}
-
-.menu {
-	background: #DDDDFF;
-	border: 1px solid black;
-	padding: 10px;
-	width: 90%;
-}
-
-#tails {
-	display: inline;
-/*	border-bottom: 1px solid black;*/
+	background: #FFFFFF;
+	padding: 0px;
 	margin: 0px;
-/*	padding-left: 20px;*/
 }
 
-.tailSelector {
-	display: inline;
-	margin: 5px 30px 5px 0px;
+#globalheader {
+	padding: 0px;
+	background: #000000;
+}
+
+#globalheader #globalnav {}
+
+#globalheader #globalnav #tails {
+	margin: 0px;
+	padding: 0px;
+}
+
+#globalheader #globalnav li {
+	display: inline-block;
+	line-height: 27px;
+}
+
+#globalheader #globalnav li a {
+	color: #CCCCCC;
+	text-decoration: none; 
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#globalheader #globalnav li a:focus, a:hover, a:active {
+	border-bottom: 2px solid red;
+	color: #FFFFFF;
+	outline: 0;
 }
 
 #logWindow {
-	position: absolute;
-	border: 1px solid black;
-	margin: 5px;
-	padding: 5px;
-	overflow: auto;
-	height: 70%;
-	width: 90%;
+	overflow: scroll;
+	height: 600px;
+	
+	padding: 15px;
+	margin: 15px;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
 }
 
 #command {
-	color: #7c7c7c;
-	font-size: 10px;
 	visibility: hidden;
+	margin-left: 20px;
+	color: #777777;
+}
+
+#autoscroll {
+	visibility: hidden;
+	margin-left: 20px;
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
 }

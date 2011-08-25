@@ -1,5 +1,3 @@
-var autoscroll = false;
-
 var xhr = new easyXDM.Rpc({
 	remote : server + "/cors/"
 }, {
@@ -23,8 +21,13 @@ function requestTails() {
 }
 
 function initialize() {
-//	$( "#menu" ).draggable();
 	requestTails();
+}
+
+function dispose() {
+	if (scrollTimer) {
+		clearInterval(scrollTimer);
+	}
 }
 
 function showTailLinks(tails) {
@@ -33,7 +36,7 @@ function showTailLinks(tails) {
 			var command = tails[id].command.join(' ');
 			command = command.replace(/'/gi, "\\'");
 			command = "'" + command + "'";
-			$('#tails').append('<li class="tailSelector"><a href="javascript: switchToLog('+id+', '+command+');">"'+tails[id].alias+'"</a></li>');
+			$('#tails').append('<li><a href="javascript: switchToLog('+id+', '+command+');"><span>'+tails[id].alias+'</span></a></li>');
 		}
 	}
 }
@@ -51,8 +54,9 @@ var switchToLog = function (id, command, idx) {
 	
 	$('#loader').css("visibility", "visible");
 	$('#command').css("visibility", "visible");
+	$('#autoscroll').css("visibility", "visible");
 	$('#command').empty();
-	$('#command').append("Command: " + command);
+	$('#command').append(command);
 	
 	$('#logWindow').empty();
 
@@ -75,18 +79,33 @@ function showLog(id, idx) {
 			var logResponse = JSON.parse(response.data);
 			var index = logResponse.marker.index;
 			$('#logWindow').append("<pre>" + logResponse.data + "</pre>");
-//			$('#logWindow').append(
-//					logResponse.data.replace(/\n/gi, "<br/>").replace(/\t/gi, "&nbsp;&nbsp;&nbsp;&nbsp;"));
 			
 			if (id == currentId) {
 				scheduled = setTimeout(function() { showLog(id, index) }, 1000);
 			}
-			
-			if (autoscroll) {
-				$("html").animate({ scrollTop: $(document).height() }, "fast");
-			}
 		}
 	});
+}
+
+
+var scrollTimer = null;
+
+function switchAutoScroll() {
+	if (scrollTimer) {
+		clearInterval(scrollTimer);
+		scrollTimer = null;
+		$('#autoscroll').empty();
+		$('#autoscroll').append("Enable auto-scroll");
+	} else {
+		scrollTimer = setInterval("scroll()", 1000);
+		$('#autoscroll').empty();
+		$('#autoscroll').append("Disable auto-scroll");
+	}
+	
+}
+
+function scroll() {
+	$("#logWindow").scrollTop($("#logWindow")[0].scrollHeight);
 }
 
 
