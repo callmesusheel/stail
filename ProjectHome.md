@@ -1,0 +1,1 @@
+stail allows you to look your logs via internet, [QuickStart](http://code.google.com/p/stail/wiki/QuickStart) <br /> <img src='http://caiiiycuk.info/wp-content/uploads/2011/08/preview.png' alt='stail' />
